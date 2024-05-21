@@ -1,0 +1,16 @@
+DEFINITION MODULE JDOS;
+  (* E. Gaiworonski, 2024 *)
+  (* Lowest dos level functions and definitions *)
+
+PROCEDURE Init;
+(* Program initialization *)
+
+PROCEDURE Run;
+(* Main cycle *)
+
+PROCEDURE Close;
+(* Program finalization *)
+
+END JDOS.
+
+

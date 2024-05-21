@@ -1,0 +1,31 @@
+DEFINITION MODULE JDisk;
+  (* E. Gaiworonski, 2024 *)
+  (* Lowest level access functions and definitions *)
+
+CONST
+  SECTOR_SIZE=256; (* Bytes per sector *)
+  DISK_SIZE=128;   (* Sectors per disk *)
+  EMPTY_BYTE=0FFH; (* Empty byte value *)
+TYPE
+  TDiskBuffer=ARRAY[0..SECTOR_SIZE-1] OF BYTE;
+VAR
+  ImageBuffer: TDiskBuffer;
+  ImageName: ARRAY [0..80] OF CHAR;
+
+PROCEDURE CreateDisk(ImageName: ARRAY OF CHAR);
+  (* Create new empty disk image in current 
+     directory with name DiskName.DSK *)
+	 
+PROCEDURE ReadSector(Sector: INTEGER; ImageName: ARRAY OF CHAR);
+  (* Read ImageBuffer from ImageFile 
+     with offset equal to Sector*SECTOR_SIZE *)
+	 
+PROCEDURE WriteSector(Sector: INTEGER; ImageName: ARRAY OF CHAR);
+  (* Write ImageBuffer to ImageFile 
+     with offset equal to Sector*SECTOR_SIZE *)	 
+	 
+PROCEDURE WriteDiskError(IOError: INTEGER);
+  (* Output to console the message 
+     with IOError code number *)
+	 
+END JDisk.
